@@ -39,15 +39,19 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Custom Animations & Styling */
+        /* FONDO CON TU IMAGEN FLORAL EN ALTA DEFINICIÓN */
         body {
-            background-color: #3b0417;
-            color: #fdf2f4;
+            background-image: url('fondo.jpeg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #3b0417;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
@@ -60,29 +64,29 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* Glassmorphism containers */
+        /* Tarjetas estilo Glassmorphism adaptadas a tonos claros */
         .glass-card {
-            background: rgba(107, 13, 47, 0.45);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.37);
+            border: 1.5px solid rgba(171, 34, 70, 0.2);
+            box-shadow: 0 10px 30px 0 rgba(107, 13, 47, 0.1);
         }
 
         .glass-card-light {
-            background: rgba(253, 242, 244, 0.07);
+            background: rgba(253, 242, 244, 0.65);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(230, 197, 100, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        /* Golden Text Gradient */
+        /* Gradiente Texto Dorado Oscuro */
         .gold-gradient-text {
-            background: linear-gradient(135deg, #fff3c4 0%, #d4af37 50%, #aa820a 100%);
+            background: linear-gradient(135deg, #6b0d2f 0%, #ab2246 40%, #aa820a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Heart Canvas styling */
+        /* Canvas de corazones y pétalos */
         #heart-canvas {
             position: fixed;
             top: 0;
@@ -93,13 +97,13 @@
             z-index: 10;
         }
 
-        /* Music Pulse Animation */
+        /* Animación Botón Música */
         @keyframes pulse-gold {
             0%, 100% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+                box-shadow: 0 0 0 0 rgba(171, 34, 70, 0.6);
             }
             50% {
-                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+                box-shadow: 0 0 0 15px rgba(171, 34, 70, 0);
             }
         }
 
@@ -110,75 +114,67 @@
 </head>
 <body class="relative min-h-screen">
 
-    <!-- Canvas for Floating Falling Hearts & Petals -->
+    <!-- Canvas para los Corazones y Pétalos flotantes -->
     <canvas id="heart-canvas"></canvas>
 
-    <!-- Floating Audio Control Button -->
+    <!-- Botón Flotante de Control de Música -->
     <div class="fixed bottom-6 right-6 z-50">
-        <button id="music-toggle" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-gradient-to-r from-wine-700 to-wine-500 text-gold-400 border-2 border-gold-500 shadow-2xl flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 music-pulse" title="Música de fondo">
+        <button id="music-toggle" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-gradient-to-r from-wine-700 to-wine-500 text-gold-300 border-2 border-gold-500 shadow-2xl flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 music-pulse" title="Música de fondo">
             <i id="music-icon" class="fas fa-music animate-bounce"></i>
         </button>
     </div>
 
-    <!-- Background Audio Element -->
+    <!-- Elemento de Audio de Fondo -->
     <audio id="bg-music" loop preload="auto">
-        <!-- Royalty-free Romantic Wedding Music fallback URL -->
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112187.mp3" type="audio/mpeg">
+        <source src="MUSICA2.MP3" type="audio/mpeg">
     </audio>
 
-    <!-- MAIN CONTAINER -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <main class="relative z-20 max-w-4xl mx-auto px-4 py-6 md:py-12 space-y-16">
 
-        <!-- HEADER / PORTADA HERO SECTION -->
+        <!-- PORTADA / HERO SECTION -->
         <section class="text-center space-y-6 pt-4">
-            <!-- Frame Container for Couple Image -->
+            <!-- Marco para la imagen de pareja -->
             <div class="relative w-64 h-80 sm:w-80 sm:h-96 mx-auto rounded-t-full p-2 bg-gradient-to-b from-gold-500 via-wine-700 to-wine-900 shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
                 <div class="w-full h-full rounded-t-full overflow-hidden border-2 border-gold-400">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop" 
+                    <img src="novio2.jpeg" 
                          alt="Beymart y Carlita" 
                          class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000"
                          onerror="this.src='https://placehold.co/600x800/4a001e/d4af37?text=Beymart+%26+Carlita'">
                 </div>
-                <!-- Decorative Frame Wings -->
-                <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-wine-900 border border-gold-500 text-gold-400 px-6 py-1 rounded-full text-xs tracking-widest uppercase shadow-md">
+                <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-wine-900 border border-gold-500 text-gold-300 px-6 py-1 rounded-full text-xs tracking-widest uppercase shadow-md">
                     ¡Nos Casamos!
                 </div>
             </div>
 
-            <!-- Names -->
+            <!-- Nombres -->
             <div class="space-y-2 pt-6">
-                <h1 class="font-cursive text-6xl sm:text-7xl md:text-8xl gold-gradient-text drop-shadow-lg leading-tight">
-                    Beymart <span class="text-wine-200 text-4xl sm:text-5xl">&</span> Carlita
+                <h1 class="font-cursive text-6xl sm:text-7xl md:text-8xl gold-gradient-text drop-shadow-md leading-tight">
+                    Beymart <span class="text-wine-700 text-4xl sm:text-5xl">&</span> Carlita
                 </h1>
-                <div class="w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-gold-500 to-transparent my-4"></div>
+                <div class="w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-wine-700 to-transparent my-4"></div>
             </div>
 
-            <!-- Verse / Bible Phrase -->
+            <!-- Versículo / Mensaje -->
             <div class="max-w-xl mx-auto px-6">
-                <blockquote class="font-serif italic text-lg sm:text-xl text-wine-100 leading-relaxed font-light glass-card-light p-6 rounded-2xl border-l-4 border-gold-500">
-                    "Y sobre todas las cosas, vestíos de amor, que es el vínculo perfecto."
-                    <footer class="text-sm font-sans tracking-widest uppercase text-gold-400 mt-3 not-italic">
-                        — Colosenses 3:14
+                <blockquote class="font-serif italic text-lg sm:text-xl text-wine-900 leading-relaxed font-semibold glass-card p-6 rounded-2xl border-l-4 border-wine-700 shadow-lg">
+                    "Uno puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe facilmente!"
+                    <footer class="text-sm font-sans tracking-widest uppercase text-wine-700 mt-3 not-italic font-bold">
+                        — Eclesiastés 4:12
                     </footer>
                 </blockquote>
             </div>
         </section>
 
-        <!-- SECCIÓN DE FECHA Y RINGS ILLUSTRATION & COUNTDOWN -->
+        <!-- SECCIÓN FECHA, ANILLOS Y CUENTA REGRESIVA -->
         <section class="glass-card rounded-3xl p-6 sm:p-10 text-center space-y-8 relative overflow-hidden">
-            <!-- Background Ornament -->
-            <div class="absolute -top-12 -right-12 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-            <!-- SVG Wedding Rings Icon -->
+            <!-- Anillos de Boda SVG -->
             <div class="flex justify-center my-2">
-                <svg class="w-20 h-20 text-gold-400 drop-shadow-md transform hover:rotate-6 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Ring 1 -->
-                    <circle cx="38" cy="52" r="26" stroke="currentColor" stroke-width="5" fill="none"/>
+                <svg class="w-20 h-20 text-gold-600 drop-shadow-md transform hover:rotate-6 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="38" cy="52" r="26" stroke="#ab2246" stroke-width="5" fill="none"/>
                     <path d="M 32 27 L 44 27 L 38 20 Z" fill="url(#gem-grad)"/>
                     <circle cx="38" cy="20" r="4" fill="#ffffff"/>
-                    <!-- Ring 2 -->
                     <circle cx="62" cy="52" r="26" stroke="url(#gold-grad)" stroke-width="5" fill="none"/>
-                    <!-- SVG Gradients -->
                     <defs>
                         <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#fff3c4"/>
@@ -193,114 +189,116 @@
                 </svg>
             </div>
 
-            <!-- Date Announcement -->
+            <!-- Anuncio de Fecha -->
             <div>
-                <p class="text-gold-400 text-sm uppercase tracking-widest font-semibold mb-1">Guarda la fecha</p>
-                <h2 class="font-serif text-3xl sm:text-4xl text-white font-bold tracking-wide">
+                <p class="text-wine-700 text-sm uppercase tracking-widest font-bold mb-1">Guarda la fecha</p>
+                <h2 class="font-serif text-3xl sm:text-4xl text-wine-900 font-bold tracking-wide">
                     Sábado, 05 de Diciembre
                 </h2>
-                <p class="text-wine-200 text-sm mt-1">Un día inolvidable que queremos compartir contigo</p>
+                <p class="text-wine-800 text-sm mt-1 font-medium">Un día inolvidable que queremos compartir contigo</p>
             </div>
 
-            <!-- Countdown Timer Grid -->
+            <!-- Contador de Cuenta Regresiva -->
             <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto pt-2">
-                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-gold-500/40">
-                    <span id="days" class="block font-serif text-3xl sm:text-4xl font-bold text-gold-400">00</span>
-                    <span class="text-xs uppercase tracking-wider text-wine-100">Días</span>
+                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-wine-500/30">
+                    <span id="days" class="block font-serif text-3xl sm:text-4xl font-bold text-wine-800">00</span>
+                    <span class="text-xs uppercase tracking-wider text-wine-900 font-semibold">Días</span>
                 </div>
-                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-gold-500/40">
-                    <span id="hours" class="block font-serif text-3xl sm:text-4xl font-bold text-gold-400">00</span>
-                    <span class="text-xs uppercase tracking-wider text-wine-100">Horas</span>
+                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-wine-500/30">
+                    <span id="hours" class="block font-serif text-3xl sm:text-4xl font-bold text-wine-800">00</span>
+                    <span class="text-xs uppercase tracking-wider text-wine-900 font-semibold">Horas</span>
                 </div>
-                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-gold-500/40">
-                    <span id="minutes" class="block font-serif text-3xl sm:text-4xl font-bold text-gold-400">00</span>
-                    <span class="text-xs uppercase tracking-wider text-wine-100">Minutos</span>
+                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-wine-500/30">
+                    <span id="minutes" class="block font-serif text-3xl sm:text-4xl font-bold text-wine-800">00</span>
+                    <span class="text-xs uppercase tracking-wider text-wine-900 font-semibold">Minutos</span>
                 </div>
-                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-gold-500/40">
-                    <span id="seconds" class="block font-serif text-3xl sm:text-4xl font-bold text-gold-400">00</span>
-                    <span class="text-xs uppercase tracking-wider text-wine-100">Segundos</span>
+                <div class="glass-card-light rounded-xl p-3 sm:p-4 text-center border border-wine-500/30">
+                    <span id="seconds" class="block font-serif text-3xl sm:text-4xl font-bold text-wine-800">00</span>
+                    <span class="text-xs uppercase tracking-wider text-wine-900 font-semibold">Segundos</span>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DE LOS PADRES -->
+        <!-- SECCIÓN PADRES -->
         <section class="glass-card rounded-3xl p-8 sm:p-10 text-center space-y-6">
-            <div class="inline-block border-b border-gold-500 pb-2">
-                <i class="fas fa-heart text-gold-400 text-sm mr-2"></i>
-                <h3 class="font-serif text-2xl sm:text-3xl text-gold-300 font-semibold inline-block">
-                    Con la Bendición de Nuestros Padres
+            <div class="inline-block border-b-2 border-wine-700 pb-2">
+                <i class="fas fa-heart text-wine-700 text-sm mr-2"></i>
+                <h3 class="font-serif text-2xl sm:text-3xl text-wine-900 font-bold inline-block">
+                    Con la Bendición de:
                 </h3>
-                <i class="fas fa-heart text-gold-400 text-sm ml-2"></i>
+                <i class="fas fa-heart text-wine-700 text-sm ml-2"></i>
             </div>
             
-            <p class="text-wine-100 text-sm max-w-md mx-auto italic">
+            <p class="text-wine-800 text-sm max-w-md mx-auto italic font-medium">
                 Quienes con su amor, apoyo e infinito cariño han hecho posible este momento.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                 <!-- Padres del Novio -->
-                <div class="glass-card-light p-6 rounded-2xl space-y-2 border-t-2 border-gold-500/60">
-                    <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Padres del Novio</span>
-                    <h4 class="font-serif text-xl sm:text-2xl text-white font-medium pt-1">Padre del Novio</h4>
-                    <p class="text-wine-200 text-sm">&</p>
-                    <h4 class="font-serif text-xl sm:text-2xl text-white font-medium">Madre del Novio</h4>
+                <div class="glass-card-light p-6 rounded-2xl space-y-2 border-t-4 border-wine-700">
+                    <span class="text-wine-700 text-xs uppercase tracking-widest font-bold">Nestros Padres:</span>
+                    <h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold pt-1">Victor Herrera Guzman</h4>
+					 <h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold">Carmen Chalco Montaño</h4>
+                    <p class="text-wine-700 text-sm font-semibold">&</p>
+                    <h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold">Luis Soliz Huari</h4>
+					<h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold">Jenny Fernandez Vda. de Mallea</h4>
                 </div>
 
                 <!-- Padres de la Novia -->
-                <div class="glass-card-light p-6 rounded-2xl space-y-2 border-t-2 border-gold-500/60">
-                    <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Padres de la Novia</span>
-                    <h4 class="font-serif text-xl sm:text-2xl text-white font-medium pt-1">Padre de la Novia</h4>
-                    <p class="text-wine-200 text-sm">&</p>
-                    <h4 class="font-serif text-xl sm:text-2xl text-white font-medium">Madre de la Novia</h4>
+                <div class="glass-card-light p-6 rounded-2xl space-y-2 border-t-4 border-wine-700">
+                    <span class="text-wine-700 text-xs uppercase tracking-widest font-bold">Padrinos de Religión y Civil</span>
+                    <h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold pt-1">Javier Soliz Huari</h4>
+                    <p class="text-wine-700 text-sm font-semibold">&</p>
+                    <h4 class="font-serif text-xl sm:text-2xl text-wine-900 font-bold">Hilaria Mamani de Soliz</h4>
                 </div>
             </div>
         </section>
 
-        <!-- CEREMONIA Y RECEPCIÓN (UBICACIONES) -->
+        <!-- CEREMONIA Y RECEPCIÓN -->
         <section class="space-y-8">
             <div class="text-center">
-                <h3 class="font-cursive text-5xl text-gold-400">¿Dónde y Cuándo?</h3>
-                <p class="text-wine-200 text-sm">Te esperamos para compartir este momento sagrado e inolvidable</p>
+                <h3 class="font-cursive text-5xl text-wine-900 font-bold">¿Dónde y Cuándo?</h3>
+                <p class="text-wine-800 text-sm font-medium">Te esperamos para compartir este momento sagrado e inolvidable</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- CEREMONIA RELIGIOSA -->
-                <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between space-y-6 hover:border-gold-400/80 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between space-y-6 hover:border-wine-700 transition-all duration-300">
                     <div class="space-y-4">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-wine-900 border border-gold-500 flex items-center justify-center text-gold-400 text-2xl">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-wine-700 text-gold-300 flex items-center justify-center text-2xl shadow-lg">
                             <i class="fas fa-church"></i>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold">Ceremonia Religiosa</h4>
-                        <div class="w-12 h-0.5 bg-gold-500/50 mx-auto"></div>
-                        <p class="text-gold-300 font-medium text-lg"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
-                        <p class="text-wine-100 font-semibold">Iglesia Central / Parroquia Principal</p>
-                        <p class="text-wine-200 text-sm">Av. Principal de la Ciudad #123</p>
+                        <h4 class="font-serif text-2xl text-wine-900 font-bold">Ceremonia Religiosa</h4>
+                        <div class="w-12 h-0.5 bg-wine-700 mx-auto"></div>
+                        <p class="text-wine-700 font-bold text-lg"><i class="far fa-clock mr-2"></i>09:45 HRS</p>
+                        <p class="text-wine-900 font-bold">Parroquia Santuario Inmaculada Concepción "Monticulo"</p>
+                        <p class="text-wine-800 text-sm font-medium">Zona Sopocachi</p>
                     </div>
 
                     <div>
-                        <a href="https://maps.google.com/?q=Iglesia+Central" target="_blank" rel="noopener noreferrer" 
-                           class="inline-flex items-center justify-center w-full py-3 px-6 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-wine-900 font-semibold text-sm hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg group">
+                        <a href="https://maps.app.goo.gl/22PdcKxCJFSx3qXt9" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center w-full py-3 px-6 rounded-full bg-gradient-to-r from-wine-700 to-wine-900 text-gold-300 font-semibold text-sm hover:from-wine-800 hover:to-wine-900 transition-all duration-300 shadow-lg group">
                             <i class="fas fa-map-marker-alt mr-2 group-hover:bounce"></i> Ver ubicación en Google Maps
                         </a>
                     </div>
                 </div>
 
                 <!-- FIESTA / RECEPCIÓN -->
-                <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between space-y-6 hover:border-gold-400/80 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between space-y-6 hover:border-wine-700 transition-all duration-300">
                     <div class="space-y-4">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-wine-900 border border-gold-500 flex items-center justify-center text-gold-400 text-2xl">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-wine-700 text-gold-300 flex items-center justify-center text-2xl shadow-lg">
                             <i class="fas fa-glass-cheers"></i>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold">Recepción & Fiesta</h4>
-                        <div class="w-12 h-0.5 bg-gold-500/50 mx-auto"></div>
-                        <p class="text-gold-300 font-medium text-lg"><i class="far fa-clock mr-2"></i>18:30 HRS</p>
-                        <p class="text-wine-100 font-semibold">Salón de Eventos El Sol</p>
-                        <p class="text-wine-200 text-sm">Calle de los Festejos #456</p>
+                        <h4 class="font-serif text-2xl text-wine-900 font-bold">Recepción Social</h4>
+                        <div class="w-12 h-0.5 bg-wine-700 mx-auto"></div>
+                        <p class="text-wine-700 font-bold text-lg"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
+                        <p class="text-wine-900 font-bold">Salón de Eventos "MARCELLEZA"</p>
+                        <p class="text-wine-800 text-sm font-medium">Av. Bolivia Frente al Colegio Bolivia</p>
                     </div>
 
                     <div>
-                        <a href="https://maps.google.com/?q=Salon+de+Eventos" target="_blank" rel="noopener noreferrer" 
-                           class="inline-flex items-center justify-center w-full py-3 px-6 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-wine-900 font-semibold text-sm hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg group">
+                        <a href="https://maps.app.goo.gl/NYH45tnZDrpBM88fA" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center w-full py-3 px-6 rounded-full bg-gradient-to-r from-wine-700 to-wine-900 text-gold-300 font-semibold text-sm hover:from-wine-800 hover:to-wine-900 transition-all duration-300 shadow-lg group">
                             <i class="fas fa-map-marked-alt mr-2 group-hover:bounce"></i> Ver ubicación del salón
                         </a>
                     </div>
@@ -308,118 +306,157 @@
             </div>
         </section>
 
-        <!-- ITINERARIO -->
-        <section class="glass-card rounded-3xl p-8 sm:p-10 space-y-8">
-            <div class="text-center space-y-2">
-                <h3 class="font-serif text-3xl sm:text-4xl text-gold-400 font-bold">Itinerario de la Boda</h3>
-                <p class="text-wine-200 text-sm">Cronograma del día especial</p>
-            </div>
+        <!-- ITINERARIO (ESTILO EXACTO A LA IMAGEN) -->
+        <section class="glass-card rounded-3xl p-6 sm:p-12 relative">
+            <h3 class="font-cursive text-5xl sm:text-6xl text-wine-700 text-center mb-10 font-bold">
+                Itinerario
+            </h3>
 
-            <div class="relative max-w-xl mx-auto border-l-2 border-gold-500/40 ml-4 sm:ml-auto space-y-8 pl-6 sm:pl-8">
-                <!-- Timeline Item 1 -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-wine-900 border-2 border-gold-500 flex items-center justify-center text-xs text-gold-400">
-                        <i class="fas fa-ring"></i>
-                    </div>
-                    <div>
-                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider">16:00 HRS</span>
-                        <h5 class="font-serif text-xl text-white font-bold">Ceremonia Religiosa</h5>
-                        <p class="text-wine-200 text-sm">El momento donde uniremos nuestras vidas ante Dios.</p>
-                    </div>
-                </div>
+            <div class="max-w-md mx-auto relative">
+                <!-- Línea vertical divisoria con conector a la izquierda -->
+                <div class="absolute left-16 sm:left-24 top-2 bottom-2 w-[1.5px] bg-[#b39580]"></div>
 
-                <!-- Timeline Item 2 -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-wine-900 border-2 border-gold-500 flex items-center justify-center text-xs text-gold-400">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <div>
-                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider">18:00 HRS</span>
-                        <h5 class="font-serif text-xl text-white font-bold">Llegada de Invitados & Recepción</h5>
-                        <p class="text-wine-200 text-sm">Bienvenida, fotografías y coctel de entrada en el salón.</p>
-                    </div>
-                </div>
+                <!-- Lista de Eventos -->
+                <div class="space-y-8 relative">
 
-                <!-- Timeline Item 3 -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-wine-900 border-2 border-gold-500 flex items-center justify-center text-xs text-gold-400">
-                        <i class="fas fa-wine-glass"></i>
+                    <!-- Evento 1: Ceremonia Religiosa -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    CEREMONIA RELIGIOSA
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">09:45 A.M.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider">19:30 HRS</span>
-                        <h5 class="font-serif text-xl text-white font-bold">Brindis Principal</h5>
-                        <p class="text-wine-200 text-sm">Entrada de los novios y palabras de agradecimiento.</p>
-                    </div>
-                </div>
 
-                <!-- Timeline Item 4 -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-wine-900 border-2 border-gold-500 flex items-center justify-center text-xs text-gold-400">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div>
-                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider">20:30 HRS</span>
-                        <h5 class="font-serif text-xl text-white font-bold">Cena de Gala</h5>
-                        <p class="text-wine-200 text-sm">Disfrutaremos de una deliciosa cena junto a nuestros seres queridos.</p>
-                    </div>
-                </div>
 
-                <!-- Timeline Item 5 -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-wine-900 border-2 border-gold-500 flex items-center justify-center text-xs text-gold-400">
-                        <i class="fas fa-music"></i>
+
+                    <!-- Evento 3: Recepción Social -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-regular fa-envelope-open"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    LLEGADA DE NOVIOS
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">16:00 P.M.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider">22:00 HRS</span>
-                        <h5 class="font-serif text-xl text-white font-bold">Fiesta & Baile</h5>
-                        <p class="text-wine-200 text-sm">¡A celebrar, bailar y disfrutar hasta que el cuerpo aguante!</p>
+
+                    <!-- Evento 4: Brindis -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-solid fa-wine-glass"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    VALS & BRINDIS
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">16:30 P.M.</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Evento 5: Cena -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    CENA
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">19:00 P.M.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 6: Lanzamiento de Bouquet -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    Corte de Torta
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">21:00 P.M.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 7: Comienza la Fiesta -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 sm:w-16 flex justify-center text-3xl sm:text-4xl text-[#3b0417]">
+                            <i class="fa-solid fa-[#3b0417] fa-music"></i>
+                        </div>
+                        <div class="relative flex-1 flex items-center pl-6 sm:pl-8">
+                            <div class="absolute left-0 w-4 sm:w-6 h-[1.5px] bg-[#b39580]"></div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-[#ab2246] tracking-wider uppercase leading-snug">
+                                    DESPEDIDA
+                                </h4>
+                                <p class="text-sm font-semibold text-[#8b1e3f] mt-0.5">00:00 A.M.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- RSVP / CONFIRMACIÓN DE ASISTENCIA WHATSAPP -->
-        <section class="glass-card rounded-3xl p-8 sm:p-12 text-center space-y-6 relative overflow-hidden border-2 border-gold-500/50">
-            <div class="w-16 h-16 mx-auto rounded-full bg-emerald-700/40 border border-emerald-400 flex items-center justify-center text-emerald-400 text-3xl">
+        <!-- CONFIRMACIÓN WHATSAPP -->
+        <section class="glass-card rounded-3xl p-8 sm:p-12 text-center space-y-6 relative overflow-hidden border-2 border-wine-700">
+            <div class="w-16 h-16 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-3xl shadow-lg">
                 <i class="fab fa-whatsapp"></i>
             </div>
 
             <div class="space-y-2 max-w-lg mx-auto">
-                <h3 class="font-serif text-3xl sm:text-4xl text-white font-bold">Confirmación de Asistencia</h3>
-                <p class="text-wine-200 text-sm">
-                    Para nosotros es muy importante contar con tu presencia. Por favor confírmanos tu asistencia antes del 25 de Noviembre.
+                <h3 class="font-serif text-3xl sm:text-4xl text-wine-900 font-bold">Confirmación de Asistencia</h3>
+                <p class="text-wine-800 text-sm font-medium">
+                    Para nosotros es muy importante contar con tu presencia. Por favor confírmanos tu asistencia enviando un mensaje directo.
                 </p>
             </div>
 
-            <!-- WhatsApp Direct Button -->
             <div class="pt-4">
                 <a id="whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base sm:text-lg shadow-2xl transition-all duration-300 transform hover:scale-105 border border-emerald-300">
-                    <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar por WhatsApp
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar asistencia por WhatsApp
                 </a>
             </div>
         </section>
 
-        <!-- FOOTER / DESPEDIDA -->
+        <!-- FOOTER -->
         <footer class="text-center py-8 space-y-4">
-            <p class="font-cursive text-4xl text-gold-400">¡Te esperamos!</p>
-            <p class="text-xs text-wine-200 uppercase tracking-widest">Beymart & Carlita • 05.12.2026</p>
+            <p class="font-cursive text-5xl text-wine-900 font-bold">¡Te esperamos!</p>
+            <p class="text-xs text-wine-800 uppercase tracking-widest font-bold">Beymart & Carlita • 05.12.2026</p>
         </footer>
 
     </main>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- LOGICA JAVASCRIPT -->
     <script>
-        /* ===================================================
-           1. COUNTDOWN TIMER LOGIC (December 5th)
-           =================================================== */
+        /* 1. CUENTA REGRESIVA */
         function updateCountdown() {
-            // Get current date
             const now = new Date();
             let currentYear = now.getFullYear();
-            
-            // Wedding target date: Dec 5th of current year (or next year if passed)
-            let weddingDate = new Date(currentYear, 11, 5, 16, 0, 0); // Month is 0-indexed (11 = Dec)
+            let weddingDate = new Date(currentYear, 11, 5, 16, 0, 0); // 5 de Diciembre
             
             if (now.getTime() > weddingDate.getTime()) {
                 weddingDate = new Date(currentYear + 1, 11, 5, 16, 0, 0);
@@ -441,16 +478,12 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        /* ===================================================
-           2. WHATSAPP LINK GENERATOR
-           =================================================== */
-        const phoneNumber = "59173718283"; // Number +591 73718283
+        /* 2. LINK WHATSAPP AL 73718283 */
+        const phoneNumber = "59175290878"; 
         const defaultMessage = encodeURIComponent("¡Hola Beymart y Carlita! ✨ Confirmo mi asistencia con mucha alegría a su boda este 5 de Diciembre. ¡Muchas felicidades! 🥂❤️");
         document.getElementById('whatsapp-btn').href = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
-        /* ===================================================
-           3. AUDIO PLAYER CONTROL
-           =================================================== */
+        /* 3. CONTROL MÚSICA DE FONDO */
         const bgMusic = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
@@ -468,12 +501,11 @@
                     musicBtn.classList.add('music-pulse');
                     isPlaying = true;
                 }).catch(err => {
-                    console.log("Audio play blocked by browser policy:", err);
+                    console.log("Audio reproducido tras interacción:", err);
                 });
             }
         }
 
-        // Auto-play attempt on first user click/scroll
         const autoPlayOnUserInteraction = () => {
             if (!isPlaying) {
                 bgMusic.play().then(() => {
@@ -487,9 +519,7 @@
         document.addEventListener('click', autoPlayOnUserInteraction);
         document.addEventListener('touchstart', autoPlayOnUserInteraction);
 
-        /* ===================================================
-           4. FALLING HEARTS & PETALS ANIMATION CANVAS
-           =================================================== */
+        /* 4. EFECTO CANVAS DE CORAZONES Y PÉTALOS CAYENDO */
         const canvas = document.getElementById('heart-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -501,7 +531,7 @@
         resizeCanvas();
 
         const particles = [];
-        const particleCount = 35; // Total falling elements
+        const particleCount = 35;
 
         class Particle {
             constructor() {
@@ -517,9 +547,8 @@
                 this.rotation = Math.random() * 360;
                 this.rotationSpeed = (Math.random() - 0.5) * 2;
                 this.opacity = Math.random() * 0.6 + 0.3;
-                // Randomize type: 0 = Heart, 1 = Petal
                 this.type = Math.random() > 0.5 ? 'heart' : 'petal';
-                this.color = Math.random() > 0.4 ? '#d4af37' : '#f7ced7'; // Gold or Soft Pink
+                this.color = Math.random() > 0.4 ? '#ab2246' : '#d4af37';
             }
 
             update() {
@@ -540,38 +569,16 @@
                 ctx.fillStyle = this.color;
 
                 if (this.type === 'heart') {
-                    // Draw Heart
                     ctx.beginPath();
                     const topCurveHeight = this.size * 0.3;
                     ctx.moveTo(0, topCurveHeight);
-                    // top left curve
-                    ctx.bezierCurveTo(
-                        0, 0, 
-                        -this.size / 2, 0, 
-                        -this.size / 2, topCurveHeight
-                    );
-                    // bottom left curve
-                    ctx.bezierCurveTo(
-                        -this.size / 2, (this.size + topCurveHeight) / 2, 
-                        0, this.size, 
-                        0, this.size
-                    );
-                    // bottom right curve
-                    ctx.bezierCurveTo(
-                        0, this.size, 
-                        this.size / 2, (this.size + topCurveHeight) / 2, 
-                        this.size / 2, topCurveHeight
-                    );
-                    // top right curve
-                    ctx.bezierCurveTo(
-                        this.size / 2, 0, 
-                        0, 0, 
-                        0, topCurveHeight
-                    );
+                    ctx.bezierCurveTo(0, 0, -this.size / 2, 0, -this.size / 2, topCurveHeight);
+                    ctx.bezierCurveTo(-this.size / 2, (this.size + topCurveHeight) / 2, 0, this.size, 0, this.size);
+                    ctx.bezierCurveTo(0, this.size, this.size / 2, (this.size + topCurveHeight) / 2, this.size / 2, topCurveHeight);
+                    ctx.bezierCurveTo(this.size / 2, 0, 0, 0, 0, topCurveHeight);
                     ctx.closePath();
                     ctx.fill();
                 } else {
-                    // Draw Petal
                     ctx.beginPath();
                     ctx.ellipse(0, 0, this.size / 2, this.size, Math.PI / 4, 0, 2 * Math.PI);
                     ctx.fill();
